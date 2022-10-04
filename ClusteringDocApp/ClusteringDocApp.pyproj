@@ -5,8 +5,7 @@
     <ProjectGuid>7ecb461b-b7a8-4bb2-9c56-03ead43a75f5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>ClusteringDocApp.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>external</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>ClusteringDocApp</Name>
