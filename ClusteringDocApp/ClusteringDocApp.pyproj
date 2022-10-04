@@ -10,7 +10,7 @@
     <OutputPath>.</OutputPath>
     <Name>ClusteringDocApp</Name>
     <RootNamespace>ClusteringDocApp</RootNamespace>
-    <InterpreterId>MSBuild|ClusteringDocEnvirnment|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|VirtualEnvironmentClustDoc|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,10 +24,10 @@
     <Compile Include="ClusteringDocApp.py" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="ClusteringDocEnvirnment\">
-      <Id>ClusteringDocEnvirnment</Id>
+    <Interpreter Include="VirtualEnvironmentClustDoc\">
+      <Id>VirtualEnvironmentClustDoc</Id>
       <Version>3.9</Version>
-      <Description>ClusteringDocEnvirnment (Python 3.9 (64-bit))</Description>
+      <Description>VirtualEnvironmentClustDoc (Python 3.9 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

@@ -1,1 +1,2 @@
-print("Hello")
+def myModule():
+    print("Hello external Module")
