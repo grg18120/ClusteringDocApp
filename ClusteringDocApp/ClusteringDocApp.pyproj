@@ -22,6 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ClusteringDocApp.py" />
+    <Compile Include="external\TFIDF_TfidfTransformer_CountVectorizer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="external\TFIDF_TfidfVectorizer.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="VirtualEnvironmentClustDoc\">
