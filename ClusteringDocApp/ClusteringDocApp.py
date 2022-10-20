@@ -1,36 +1,17 @@
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.feature_extraction.text import CountVectorizer
-import pandas as pd
+#Download and import spacy
+#Guide https://stackoverflow.com/questions/36835341/pip-is-not-recognized
+#Error: pip : The term 'pip' is not recognized as the name of a cmdlet, function, script file, or operable program.
+#1)Add pip to Environment Variables 
+#    This PC -> Properties -> Advanced System Settings -> Environment Variables ->
+#    on System variables clik on Path and then Edit -> New ->
+#    Copy/Paste the path where pip exist (C:\Users\George Georgariou\source\repos\ClusteringDocApp\ClusteringDocApp\VirtualEnvironmentClustDoc\Scripts)
+#2)pip install -U pip setuptools wheel
+#3)pip install -U spacy
+#
+#Download trained pipelines (en_core_web_sm, el_core_news_sm)
+#python -m spacy download en_core_web_sm
+#python -m spacy download el_core_news_sm
 
-corpus = [
-    "The car is driven on the road",
-    "The truck is driven on the highway"
-    ]
-
-
-cv = CountVectorizer()
-word_count_vector = cv.fit_transform(corpus)
-tf = pd.DataFrame(word_count_vector.toarray(), columns=cv.get_feature_names_out())
-print(tf)
-
-tfidf_transformer = TfidfTransformer(
-    use_idf = True, #Use or not idf function 
-    
-    #smooth_idf=True, #True:idf = log(n/(1+df))  False: idf = log(n/df) + 1
-    
-    sublinear_tf = False, #True: replace tf with 1 + log(tf)
-
-    #norm=None 
-    #norm = 'l2' kanoume kanonikopoihsh tou telikou dianusmatos tfidf pou exoume 
-    #   dhladh pernoume to mh kanonikopoihmeno dianusma  kai diairoume kathe timh 
-    #   tou me th posothta Sqrt(Sum(tfidt[i]^2)) = metro tou dianusmatos
-    #   meta tha isxuei Sum(tfidt[i]^2) = 1
-    #   sto sklearn anaferetai oti: The cosine similarity between two vectors is their dot product when l2 norm has been applied.
-    norm=None
-    )
-X = tfidf_transformer.fit_transform(word_count_vector)
-idf = pd.DataFrame({'feature_name':cv.get_feature_names_out(), 'idf_weights':tfidf_transformer.idf_})
-print(idf)
-
-tf_idf = pd.DataFrame(X.toarray() ,columns=cv.get_feature_names_out())
-print(tf_idf)
+import spacy
+nlpEn = spacy.load('en_core_web_sm')
+nlpGr = spacy.load('el_core_news_sm')
