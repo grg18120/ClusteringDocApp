@@ -13,5 +13,12 @@
 #python -m spacy download el_core_news_sm
 
 import spacy
-nlpEn = spacy.load('en_core_web_sm')
+
+#Language object containing all components and data needed to process text.
+nlp = spacy.load('en_core_web_sm')
 nlpGr = spacy.load('el_core_news_sm')
+
+#Calling the nlp object on a string of text will return a processed Doc object
+doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
+for token in doc:
+    print(token.text, token.pos_, token.dep_)
